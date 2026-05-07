@@ -218,31 +218,7 @@ Al finalizar la práctica se obtuvo un stack de tres servicios completamente fun
 
 El diagrama final de la arquitectura desplegada es el siguiente:
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                     HOST — Windows                          │
-│                                                             │
-│  localhost:8080          localhost:8081                     │
-│       │                       │                             │
-│       ▼                       ▼                             │
-│  ┌──────────┐          ┌────────────┐                       │
-│  │  mi-web  │          │   admin    │                       │
-│  │WordPress │          │ phpMyAdmin │                       │
-│  │  :80     │          │    :80     │                       │
-│  └────┬─────┘          └─────┬──────┘                      │
-│       │                      │                             │
-│       └──────────┬───────────┘                             │
-│               mi-red (bridge)                              │
-│                  │                                         │
-│           ┌──────┴──────┐                                  │
-│           │    mysql    │  ← puerto 3306, no expuesto      │
-│           │  MySQL 5.7  │                                  │
-│           └──────┬──────┘                                  │
-│                  │                                         │
-│  Volúmenes: db_data (/var/lib/mysql)                       │
-│             wp_data (/var/www/html)                        │
-└─────────────────────────────────────────────────────────────┘
-```
+![Figura 5. Sitio diagrama](diagrama.jpg)
 
 | Contenedor | Imagen      | Puerto host → contenedor | Red    | Volumen |
 |------------|-------------|--------------------------|--------|---------|
